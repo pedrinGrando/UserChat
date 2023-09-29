@@ -1,0 +1,176 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.hidden {
+    display: none;
+}
+
+#chatContainer {
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    padding: 10px;
+    box-shadow: #ccc;
+}
+
+.chatHeader {
+    text-align: center;
+}
+
+#chatMessages {
+    height: 200px;
+    overflow-y: scroll;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+    padding: 5px;
+}
+
+.chatInput {
+    display: flex;
+    gap: 5px;
+}
+
+#messageInput {
+    flex: 1;
+}
+
+#popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.popupContent {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.popupContent h2 {
+    margin-bottom: 10px;
+}
+
+/* Botão Estilos  */
+
+button {
+    padding: 10px 40px;
+    width: 40px;
+    height: 30px;
+    font-size: 12px;
+    background-color: #008542;
+    color: #fff;
+    text-shadow: 0 2px 0 rgb(0 0 0 / 25%);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    border: 0;
+    border-radius: 10px;
+    z-index: 1;
+    user-select: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    white-space: unset;
+    padding: .8rem 1.5rem;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.7s cubic-bezier(0,.8,.26,.99);
+   }
+   
+   button:before {
+    position: absolute;
+    pointer-events: none;
+    top: 0;
+    left: 0;
+    display: block;
+    border-radius: 10px;
+    width: 100%;
+    height: 100%;
+    content: '';
+    transition: .7s cubic-bezier(0,.8,.26,.99);
+    z-index: -1;
+    background-color: #008542!important;
+    box-shadow: 0 -4px rgb(21 108 0 / 50%) inset, 0 4px rgb(100 253 31 / 99%) inset, -4px 0 rgb(100 253 31 / 50%) inset, 4px 0 rgb(21 108 0 / 50%) inset;
+   }
+   
+   button:after {
+    position: absolute;
+    pointer-events: none;
+    top: 0;
+    left: 0;
+    display: block;
+    border-radius: 10px;
+    width: 40px;
+    height: 30px;
+    content: '';
+    box-shadow: 0 4px 0 0 rgb(0 0 0 / 15%);
+    transition: .7s cubic-bezier(0,.8,.26,.99);
+   }
+   
+   button:hover:before {
+    box-shadow: 0 -4px rgb(0 0 0 / 50%) inset, 0 4px rgb(255 255 255 / 20%) inset, -4px 0 rgb(255 255 255 / 20%) inset, 4px 0 rgb(0 0 0 / 50%) inset;
+   }
+   
+   button:hover:after {
+    box-shadow: 0 4px 0 0 rgb(0 0 0 / 15%);
+   }
+   
+   button:active {
+    transform: translateY(4px);
+   }
+   
+   button:active:after {
+    box-shadow: 0 0px 0 0 rgb(0 0 0 / 15%);
+   }
+
+   /* Inputs  */
+
+   #input-wrapper input {
+    background-color: #eee;
+    border: none;
+    padding: 1rem;
+    font-size: 1rem;
+    width: 250px;
+    height: 15px;
+    border-radius: 1rem;
+    color: lightcoral;
+    box-shadow: 0 0.4rem #dfd9d9;
+    cursor: pointer;
+  }
+  
+  #input-wrapper input:focus {
+    outline-color: lightcoral;
+  }
+
+  #input-wrapper input ::placeholder {
+    font-size: 10px;
+  }
+
+  /* Botao de troca de usuário */
+
+  #troca-user{
+    width: 700px;
+    border: 3px solid #ccc;
+    border-radius: 20px;
+    margin-left: 80px;
+    padding: 20px;
+    background-color: #ccc;
+  }
+
+  #btn-troca-user{
+    width: 100px;
+    font-size: 8px;
+  }
