@@ -35,15 +35,15 @@ public class UsuarioController {
 
     //MAPEAMENTO DO CADASTRO E LOGIN
 
-    @PostMapping("/cadastro")
+    @PostMapping("/login")
     public String cadastrarUsuario(@ModelAttribute("usuario") Usuario usuario, Model model) {
      //Criptografar a senha antes de salvar
     String senhaCriptografada = passwordEncoder.encode(usuario.getSenha());
     usuario.setSenha(senhaCriptografada);
 
          usuarioService.cadastrarUsuario(usuario, model);
-
-    return "redirect:/login"; // Redirecionar para a página de login após o cadastro
+    
+         return "login"; // Retorne a página que contém o formulário de login e cadastro
 }
 
     //Caso de erro no login, ele retorna para pagina de login
