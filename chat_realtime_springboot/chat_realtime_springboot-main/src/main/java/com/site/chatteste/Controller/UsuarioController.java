@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import com.site.chatteste.Repository.UsuarioRepository;
 import com.site.chatteste.Service.UsuarioService;
@@ -19,9 +18,6 @@ public class UsuarioController {
     
     //ATRIBUTOS
     private UsuarioService usuarioService;
-
-    @Autowired
-    private BCryptPasswordEncoder passwordEncoder;
 
     //CRIACAO DO SERVICE NO CONTROLLER 
     @Autowired
@@ -38,8 +34,6 @@ public class UsuarioController {
     @PostMapping("/login")
     public String cadastrarUsuario(@ModelAttribute("usuario") Usuario usuario, Model model) {
      //Criptografar a senha antes de salvar
-    String senhaCriptografada = passwordEncoder.encode(usuario.getSenha());
-    usuario.setSenha(senhaCriptografada);
 
          usuarioService.cadastrarUsuario(usuario, model);
     
