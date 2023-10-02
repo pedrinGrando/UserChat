@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 
 import com.site.chatteste.config.ObjMsg;
 
+//TESTE ALTERAÇÃO
 @Controller
 public class App {
 
