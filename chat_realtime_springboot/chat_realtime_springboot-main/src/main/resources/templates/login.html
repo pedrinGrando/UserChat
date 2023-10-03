@@ -9,12 +9,8 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
 </head>
 <body>
-    
-    <div class="container" id="container">
-        <div class="form-container sign-up-container">
           <form method="post" action="/cadastro" class="cadastro-container" id="cadastro-form"> 
             <h1>Cadastro</h1>
             <span>Insira seus dados</span>
@@ -29,44 +25,6 @@
           </div>
             <button type="submit" class="button" id="btn-cadastrar">Cadastrar</button>
           </form>
-        </div>
-
-        <div class="form-container sign-in-container">
-          <!--Formulario de Login-->
-          <form action="/loginValida" method="post">
-            <h1> 
-              <img src="/css/img/Modelo Logo.png" alt="" class="logo-inicio">
-            </h1>
-            <span>Insira seus dados</span>
-            <span class="spanTexto"></span>
-
-          <p th:text="${mensagem}"></p>
-            
-            <div th:if="${error}" class="error-message">
-              <p th:text="${error}"></p>
-            </div>
-
-            <!--Leva para a página de recuperação de senha-->
-           <a class="link-esqueceu-senha" th:href="@{/recuperarSenha}" >Esqueceu a sua senha?</a>
-
-            <button type="submit" class="button">Login</button>
-          </form>
-          
-        </div>
-        <div class="overlay-container">
-          <div class="overlay">
-            <div class="overlay-panel overlay-left">
-              <h1 class="stake-h1">Login</h1>
-              <p>Ja possui conta?</p>
-              <button class="ghost" id="signIn">Login</button>
-            </div>
-            <div class="overlay-panel overlay-right">
-              <h2>Ainda não possui conta ?</h2>
-              <p>Faça seu cadastro, <br>é rapido e facil!</p>
-              <button class="ghost" id="signUp">Cadastro</button>
-            </div>
-          </div>
-        </div>
-    </div>
+        
 </body>
 </html>
