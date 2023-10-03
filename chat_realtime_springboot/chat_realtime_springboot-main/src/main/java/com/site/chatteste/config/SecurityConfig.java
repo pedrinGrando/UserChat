@@ -1,4 +1,4 @@
-package go.party.tcs.config;
+package com.site.chatteste.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
