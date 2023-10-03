@@ -57,7 +57,7 @@ function connect(){
 
 function trocarUsuario(){
 
-    window.open("index.html", "_blank");
+    window.open("startChat.html", "_blank");
 
 }
 
