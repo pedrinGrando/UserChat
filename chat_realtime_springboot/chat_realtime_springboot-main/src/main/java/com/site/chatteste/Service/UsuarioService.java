@@ -29,8 +29,10 @@ public class UsuarioService {
          usuarioRepository.save(usuario);
     // Salvar o usuário no banco de dados
     }
-
 }
 
-    
+   public Usuario findByUsername(String usuarioNome){
+    return usuarioRepository.findByUsername(usuarioNome);
+}
+   
 }

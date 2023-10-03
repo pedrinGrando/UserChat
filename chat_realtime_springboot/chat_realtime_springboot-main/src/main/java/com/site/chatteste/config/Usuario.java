@@ -1,61 +1,109 @@
 package com.site.chatteste.config;
 
+import java.time.LocalDate;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Lob;
 import jakarta.persistence.Table;
 
+//Classe Entidade
+//Tabela no banco  "Usuarios"
 @Entity
-@Table(name = "usuarios") // Define o nome da tabela no banco de dados
+@Table(name ="usuarios")
 public class Usuario {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
 
-    @Column(nullable = false, unique = true)
-    private String userName;
+    @Column(name = "nome")
+    private String nome;
 
-    @Column(nullable = false)
-    private String senha;
+    @Column(name = "username", unique = true)
+    private String username;
 
-    @Column(nullable = false)
+    @Column(name = "descricao")
+    private String descricao;
+
+    @Column(name = "email", unique = true, nullable = false)
+    private String email;
+
+    @Column(name = "cpf")
     private String cpf;
 
-    public Usuario() {
-    }
-    
+    @Column(name = "idade")
+    private LocalDate idade;
+
+    @Column(name = "senha")
+    private String senha;
+
     public Long getId() {
         return id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public String getNome() {
+        return nome;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public String getDescricao() {
+        return descricao;
     }
 
-    public String getSenha() {
-        return senha;
-    }
-
-    public void setSenha(String senha) {
-        this.senha = senha;
+    public String getEmail() {
+        return email;
     }
 
     public String getCpf() {
         return cpf;
     }
 
+    public LocalDate getIdade() {
+        return idade;
+    }
+
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     public void setCpf(String cpf) {
         this.cpf = cpf;
     }
+
+    public void setIdade(LocalDate idade) {
+        this.idade = idade;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+    
 }
