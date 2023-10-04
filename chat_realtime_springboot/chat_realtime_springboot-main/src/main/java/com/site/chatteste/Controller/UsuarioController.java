@@ -51,29 +51,27 @@ public class UsuarioController {
       return "chat";
     }
 
+    //MAPEAMENTO DO CADASTRO
     @GetMapping("/cadastro")
     public String exibirFormularioCadastro() {
-        return "login"; // Retorne a página que contém o formulário de login e cadastro
+        return "login"; // 
     }
 
     @PostMapping("/cadastro")
     public String cadastrarUsuario(@ModelAttribute("usuario") Usuario usuario, Model model) {
     // Criptografar a senha antes de salvar
-    String senhaCriptografada = passwordEncoder.encode(usuario.getSenha());
-    usuario.setSenha(senhaCriptografada);
+      String senhaCriptografada = passwordEncoder.encode(usuario.getSenha());
+      usuario.setSenha(senhaCriptografada);
 
         try {
          usuarioService.cadastrarUsuario(usuario, model);
+         return "chat"; 
             
         } catch (DataIntegrityViolationException e) {
             model.addAttribute("mensagem", "O username já está em uso. Escolha outro username.");
-            // Trate outras exceções aqui, se necessário
+            return "cadastro"; 
         }
-
-
-    return "redirect:/chat"; // Redirecionar para a página de login após o cadastro
   }
-
 
 }
     

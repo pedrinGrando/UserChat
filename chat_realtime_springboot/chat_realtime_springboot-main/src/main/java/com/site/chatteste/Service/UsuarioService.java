@@ -20,19 +20,13 @@ public class UsuarioService {
     }
 
     public void cadastrarUsuario(Usuario usuario, Model model) {
-        //Validação por CPF
-    boolean existeUsuario = usuarioRepository.existsById(usuario.getId());
     
-    if (existeUsuario) {
-       model.addAttribute("mensagem", "já existe um usuário com estes dados!");
-    }else{
          usuarioRepository.save(usuario);
-    // Salvar o usuário no banco de dados
-    }
-}
+    
+   }
 
    public Usuario findByUsername(String usuarioNome){
     return usuarioRepository.findByUsername(usuarioNome);
-}
+   }
    
 }
