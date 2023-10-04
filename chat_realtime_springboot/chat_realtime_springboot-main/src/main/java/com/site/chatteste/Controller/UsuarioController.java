@@ -46,6 +46,11 @@ public class UsuarioController {
     @Autowired
     private BCryptPasswordEncoder passwordEncoder;
 
+    @GetMapping("/chat")
+    public String iniciarChat(){
+      return "chat";
+    }
+
     @GetMapping("/cadastro")
     public String exibirFormularioCadastro() {
         return "login"; // Retorne a página que contém o formulário de login e cadastro
@@ -66,37 +71,9 @@ public class UsuarioController {
         }
 
 
-    return "redirect:/login"; // Redirecionar para a página de login após o cadastro
-}
+    return "redirect:/chat"; // Redirecionar para a página de login após o cadastro
+  }
 
-    //Caso de erro no login, ele retorna para pagina de login
-    @GetMapping("/loginValida")
-    public String loginPage() {
-        return "login";
-    }
 
-    //Método para validar as informações do Usuario para o Login 
-    @PostMapping("/loginValida")
-    public String login(@RequestParam("usuarioNome") String usuarioNome, @RequestParam("senha") String senha, Model model, HttpSession session) {
-        // Consulte o banco de dados para verificar se o usuário existe
-        Usuario usuario = usuarioService.findByUsername(usuarioNome);
-        boolean valida = false;
-        if (usuario != null) {
-            // Verificar se a senha fornecida corresponde à senha criptografada no banco de dados
-            BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-            if (passwordEncoder.matches(senha, usuario.getSenha())) {
-                // Autenticação bem-sucedida
-                session.setAttribute("usuario", usuario); // Armazena o usuário na sessão
-                valida  = true;
-            }
-        }
-        if (valida) {
-            return "redirect:/home";
-        } else {
-            // Autenticação falhou
-            model.addAttribute("error", "Usuário ou senha incorretos!");
-            return "login";
-        }
-    }
 }
     
