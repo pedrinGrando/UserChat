@@ -46,6 +46,11 @@ public class UsuarioController {
     @Autowired
     private BCryptPasswordEncoder passwordEncoder;
 
+   @GetMapping("/")
+   public String iniciarSistema(){
+      return "login";
+   }
+
     @GetMapping("/loginValida")
       public String realizarLogin(){
         return "login";
