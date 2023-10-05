@@ -13,6 +13,7 @@ body {
 }
 
 #chatContainer {
+    background-color: #ccc;
     width: 300px;
     border: 1px solid #ccc;
     border-radius: 15px;
@@ -26,6 +27,7 @@ body {
 
 #chatMessages {
     height: 200px;
+    background-color: #ccc;
     overflow-y: scroll;
     border: 1px solid #ccc;
     margin-bottom: 10px;

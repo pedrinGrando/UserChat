@@ -26,5 +26,15 @@
           </div>
             <button type="submit" class="button" id="btn-cadastrar">Cadastrar</button>
           </form>
+
+          <form method="post" action="/loginValida" class="cadastro-container" id="login-form"> 
+            <h1>Login</h1>
+            <span>Insira seus dados</span>
+            <div class="inputGroup">
+            <input type="text" name="username" class="form-control" placeholder="Nome de usuário" required/>
+            <input type="password" name="senha" class="form-control" minlength="8" maxlength="8" id="senhaTrocaCadastro" placeholder="Informe a senha" required />
+          </div>
+            <button type="submit" class="button" id="btn-login">Login</button>
+          </form>
   </body>
 </html>

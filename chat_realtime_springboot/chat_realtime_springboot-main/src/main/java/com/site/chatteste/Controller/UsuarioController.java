@@ -46,6 +46,17 @@ public class UsuarioController {
     @Autowired
     private BCryptPasswordEncoder passwordEncoder;
 
+    @GetMapping("/loginValida")
+      public String realizarLogin(){
+        return "login";
+      }
+
+      @GetMapping("/startChat")
+      public String trocarUsuario(){
+        return "login";
+      }
+
+
     @GetMapping("/chat")
     public String iniciarChat(){
       return "chat";
