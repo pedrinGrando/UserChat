@@ -350,7 +350,7 @@ button.ghost {
 .inputGroup input {
   font-size: 15px;
   padding: 0.8em;
-  color: #ddd;
+  color: #000000;
   outline: none;
   border: 2px solid rgb(150, 150, 200);
   background-color: transparent;
@@ -462,18 +462,11 @@ input[type="date"]:focus {
     margin-bottom: -38px;
   }
 
-  .Btn {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    width: 45px;
-    height: 45px;
-    border: none;
-    border-radius: 50%;
-    cursor: pointer;
-    position: relative;
-    overflow: hidden;
-    transition-duration: .3s;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.199);
-    background-color: rgb(255, 65, 65);
+  .cadastro-container{
+    border: 1px solid red;
+
+  }
+
+  .login-container{
+    border: 1px solid #000000;
   }
