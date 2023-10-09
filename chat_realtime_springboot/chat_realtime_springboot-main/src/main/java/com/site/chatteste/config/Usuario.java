@@ -26,17 +26,11 @@ public class Usuario {
     @Column(name = "username", unique = true)
     private String username;
 
-    @Column(name = "descricao")
-    private String descricao;
-
     @Column(name = "email", unique = true, nullable = false)
     private String email;
 
     @Column(name = "cpf")
     private String cpf;
-
-    @Column(name = "idade")
-    private LocalDate idade;
 
     @Column(name = "senha")
     private String senha;
@@ -45,65 +39,50 @@ public class Usuario {
         return id;
     }
 
-    public String getNome() {
-        return nome;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public String getDescricao() {
-        return descricao;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public String getCpf() {
-        return cpf;
-    }
-
-    public LocalDate getIdade() {
-        return idade;
-    }
-
-
-    public String getSenha() {
-        return senha;
-    }
-
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getNome() {
+        return nome;
     }
 
     public void setNome(String nome) {
         this.nome = nome;
     }
 
+    public String getUsername() {
+        return username;
+    }
+
     public void setUsername(String username) {
         this.username = username;
     }
 
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
+    public String getEmail() {
+        return email;
     }
 
     public void setEmail(String email) {
         this.email = email;
     }
 
+    public String getCpf() {
+        return cpf;
+    }
+
     public void setCpf(String cpf) {
         this.cpf = cpf;
     }
 
-    public void setIdade(LocalDate idade) {
-        this.idade = idade;
+    public String getSenha() {
+        return senha;
     }
 
     public void setSenha(String senha) {
         this.senha = senha;
     }
+
+    
     
 }
