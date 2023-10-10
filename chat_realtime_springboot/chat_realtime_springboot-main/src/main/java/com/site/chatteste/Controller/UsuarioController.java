@@ -84,8 +84,8 @@ public class UsuarioController {
          return "chat"; 
             
         } catch (DataIntegrityViolationException e) {
-            model.addAttribute("mensagem", "O username já está em uso. Escolha outro username.");
-            return "cadastro"; 
+            model.addAttribute("mensagem", "Existem dados que já estão cadastrados!");
+            return "login"; 
         }
   }
 

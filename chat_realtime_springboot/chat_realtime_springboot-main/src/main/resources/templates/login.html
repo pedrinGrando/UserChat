@@ -41,6 +41,11 @@
                         <input class="flip-card__input" name="senha" placeholder="Password" type="password">
                         <input class="flip-card__input" name="username" placeholder="Username" type="text">
                         <input class="flip-card__input" name="cpf" placeholder="CPF" type="text">
+
+                        <div th:if="${mensagem}" class="error-message">
+                           <p th:text="${mensagem}"></p>
+                         </div>
+            
                         <button type="submit" class="flip-card__btn">Confirm!</button>
                      </form>
                   </div>
