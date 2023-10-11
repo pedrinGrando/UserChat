@@ -51,10 +51,34 @@ public class UsuarioController {
       return "login";
    }
 
-    @GetMapping("/loginValida")
+     @GetMapping("/loginValida")
       public String realizarLogin(){
         return "login";
       }
+
+      //Método para validar as informações do Usuario para o Login 
+    @PostMapping("/loginValida")
+    public String login(@RequestParam("usuarioNome") String usuarioNome, @RequestParam("senha") String senha, Model model, HttpSession session) {
+        // Consulte o banco de dados para verificar se o usuário existe
+        Usuario usuario = usuarioService.findByUsername(usuarioNome);
+        boolean valida = false;
+        if (usuario != null) {
+            // Verificar se a senha fornecida corresponde à senha criptografada no banco de dados
+            BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+            if (passwordEncoder.matches(senha, usuario.getSenha())) {
+                // Autenticação bem-sucedida
+                session.setAttribute("usuario", usuario); // Armazena o usuário na sessão
+                valida  = true;
+            }
+        }
+        if (valida) {
+            return "redirect:/chat";
+        } else {
+            // Autenticação falhou
+            model.addAttribute("mensagemLogin", "Usuário ou senha incorretos!");
+            return "login";
+        }
+    }
 
       @GetMapping("/startChat")
       public String trocarUsuario(){
@@ -87,7 +111,9 @@ public class UsuarioController {
             model.addAttribute("mensagem", "Existem dados que já estão cadastrados!");
             return "login"; 
         }
-  }
+    }
+
+
 
 }
     

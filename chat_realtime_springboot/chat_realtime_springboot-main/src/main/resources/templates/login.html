@@ -24,9 +24,14 @@
                <div class="flip-card__inner">
                   <div class="flip-card__front">
                      <div class="title">Log in</div>
-                     <form method="post" action="/cadastro" class="flip-card__form">
-                        <input class="flip-card__input" name="email" placeholder="Email" type="email">
+                     <form method="post" action="/loginValida" class="flip-card__form">
+                        <input class="flip-card__input" name="usuarioNome" placeholder="Username" type="text">
                         <input class="flip-card__input" name="senha" placeholder="Password" type="password">
+
+                        <div th:if="${mensagemLogin}" class="error-message">
+                           <p th:text="${mensagemLogin}"></p>
+                         </div>
+
                         <button type="submit" class="flip-card__btn">Let`s go!</button>
                      </form>
                   </div>
