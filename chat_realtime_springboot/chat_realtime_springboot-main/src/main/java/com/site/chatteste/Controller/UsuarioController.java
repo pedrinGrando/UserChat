@@ -46,6 +46,8 @@ public class UsuarioController {
     @Autowired
     private BCryptPasswordEncoder passwordEncoder;
 
+    private Usuario usuarioLogado;
+
    @GetMapping("/")
    public String iniciarSistema(){
       return "login";
@@ -59,8 +61,10 @@ public class UsuarioController {
       //Método para validar as informações do Usuario para o Login 
     @PostMapping("/loginValida")
     public String login(@RequestParam("usuarioNome") String usuarioNome, @RequestParam("senha") String senha, Model model, HttpSession session) {
-        // Consulte o banco de dados para verificar se o usuário existe
+        // banco de dados para verificar se o usuário existe
         Usuario usuario = usuarioService.findByUsername(usuarioNome);
+        usuarioLogado = usuario;
+
         boolean valida = false;
         if (usuario != null) {
             // Verificar se a senha fornecida corresponde à senha criptografada no banco de dados
@@ -68,6 +72,7 @@ public class UsuarioController {
             if (passwordEncoder.matches(senha, usuario.getSenha())) {
                 // Autenticação bem-sucedida
                 session.setAttribute("usuario", usuario); // Armazena o usuário na sessão
+                model.addAttribute("usernameSessao", usuario);
                 valida  = true;
             }
         }
@@ -75,19 +80,22 @@ public class UsuarioController {
             return "redirect:/chat";
         } else {
             // Autenticação falhou
-            model.addAttribute("mensagemLogin", "Usuário ou senha incorretos!");
+            model.addAttribute("mensagemLogin", "Incorrect password or username");
             return "login";
         }
     }
 
       @GetMapping("/startChat")
-      public String trocarUsuario(){
+      public String trocarUsuario(Model model){
+
+          model.addAttribute("usernameSessao", usuarioLogado);
         return "login";
       }
 
 
     @GetMapping("/chat")
     public String iniciarChat(){
+
       return "chat";
     }
 

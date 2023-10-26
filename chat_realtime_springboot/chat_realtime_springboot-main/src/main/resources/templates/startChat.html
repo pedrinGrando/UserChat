@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+    <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -35,8 +36,8 @@
     </div>
     <div id="popup" class="hidden">
         <div class="popupContent">
-            <h2>Type your name:</h2>
-            <input type="text" id="usernameInput">
+            <h2>Type your name: (Visible for others)</h2>
+            <input type="text" id="usernameInput" value="${usernameSessao.username}">
             <button onclick="openChat()">Join</button>
         </div>
     </div>

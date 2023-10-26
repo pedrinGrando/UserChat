@@ -280,3 +280,17 @@ p{
   color: var(--font-color);
   cursor: pointer;
 } 
+
+/* Titulo */ 
+.titulo-pagina{
+  padding:10px;
+  background-color: #DDD;
+  border-radius: 30px;
+  box-shadow: 2px 2px 2px #000;
+}
+
+.titulo-pagina p{
+  font-size: 25px;
+  margin-left: 10%;
+  color: #000;
+}
